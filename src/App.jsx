@@ -37,13 +37,13 @@ const portfolio = {
   phone: "+20 1011534328",
   github: "https://github.com/MahmoudNagiubX",
   linkedin: "https://www.linkedin.com/in/mahmoudnagiubb/",
-  cvPath: "/Mahmoud_Nagiub_CV.pdf",
-  photoPath: "/profile.jpg",
+  cvPath: `${import.meta.env.BASE_URL}Mahmoud_Nagiub_CV.pdf`,
+  photoPath: `${import.meta.env.BASE_URL}profile.jpg`,
   stats: [
     { label: "CGPA", value: "3.87 / 4.0" },
     { label: "Internship", value: "120 hrs" },
     { label: "ML Accuracy", value: "96%" },
-    { label: "Focus", value: "AI + Data" },
+    { label: "Focus", value: "AI & Software Engineering" },
   ],
   about: [
     "I am a Software Engineering student at the Egyptian Chinese University with a Data Science specialization and a strong interest in building intelligent systems that connect software engineering, analytics, and machine learning.",
