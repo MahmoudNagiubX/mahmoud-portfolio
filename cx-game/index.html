@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>CX Bank Challenge</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <div class="hero-top">
+      <div><h1>🏦 CX Bank Challenge</h1><small>Customer Experience Simulator</small></div>
+      <div class="stage-pill" id="stagePill">جاهز</div>
+    </div>
+    <div class="meters">
+      <div class="meter"><span>❤️ Satisfaction</span><b id="satTop">70</b></div>
+      <div class="meter"><span>⚡ Effort</span><b id="effTop">50</b></div>
+      <div class="meter"><span>⏱ Resolution</span><b id="timeTop">12m</b></div>
+    </div>
+    <div class="emotion">
+      <div><div class="emotion-face" id="emotionFace">🙂</div><div class="emotion-label" id="emotionLabel">مطمّن</div></div>
+      <div class="bar"><div id="emotionBar"></div></div>
+    </div>
+    <div class="progress"><div id="progressBar"></div></div>
+  </header>
+
+  <section class="card screen active" id="startScreen">
+    <span class="tag">نسخة مطوّرة • Mobile Friendly</span>
+    <h2>مش Quiz… دي محاكاة لرحلة عميل 👀</h2>
+    <p class="subtitle">اختياراتك هتغيّر إحساس العميل، مستوى المجهود، ووقت الحل. وفي الآخر هتاخد CX Score وتحليل لنقاط قوتك.</p>
+    <div class="badges">
+      <span class="badge">🎭 Personas</span><span class="badge">🔀 Branching</span><span class="badge">😡 Emotion Meter</span><span class="badge">📊 KPIs</span><span class="badge">🏆 Skill Breakdown</span>
+    </div>
+    <div class="actions"><button class="btn btn-primary" onclick="goPersona()">ابدأ التحدي 🚀</button></div>
+  </section>
+
+  <section class="card screen" id="personaScreen">
+    <span class="tag">الخطوة 1 • اختار العميل</span>
+    <h2>مين العميل اللي هتتعامل معاه؟ 🎭</h2>
+    <p class="subtitle">كل Persona عندها احتياجات مختلفة. اختار واحدة وابدأ الرحلة.</p>
+    <div class="grid persona-grid" id="personaGrid"></div>
+    <div class="actions"><button class="btn btn-primary" id="personaStart" disabled onclick="startSimulation()">ابدأ الرحلة ←</button></div>
+  </section>
+
+  <section class="card screen" id="scenarioScreen">
+    <span class="tag" id="scenarioTag">Scenario</span>
+    <h2 id="scenarioTitle"></h2>
+    <p class="subtitle" id="scenarioSub"></p>
+    <div class="scenario" id="scenarioText"></div>
+    <div class="grid" id="choices"></div>
+    <div class="impact" id="impactBox">
+      <div class="impact-grid">
+        <div class="impact-item"><span>❤️ Satisfaction</span><b id="impactSat">0</b></div>
+        <div class="impact-item"><span>⚡ Effort</span><b id="impactEff">0</b></div>
+        <div class="impact-item"><span>⏱ Resolution</span><b id="impactTime">0</b></div>
+      </div>
+      <div class="feedback" id="feedback"></div>
+      <div class="learn" id="learning"></div>
+    </div>
+    <div class="actions"><button class="btn btn-primary hidden" id="nextBtn" onclick="nextStage()">التالي ←</button></div>
+  </section>
+
+  <section class="card screen" id="resultScreen">
+    <span class="tag">النتيجة النهائية</span>
+    <h2>رحلة العميل خلصت 🎉</h2>
+    <div class="final-score" id="finalScore">0</div>
+    <div class="rank" id="finalRank"></div>
+    <p class="subtitle" id="finalMsg"></p>
+    <div class="summary-grid">
+      <div class="summary-box"><span>❤️ Final Satisfaction</span><b id="sumSat"></b></div>
+      <div class="summary-box"><span>⚡ Customer Effort</span><b id="sumEff"></b></div>
+      <div class="summary-box"><span>⏱ Resolution Time</span><b id="sumTime"></b></div>
+      <div class="summary-box"><span>🙂 Final Emotion</span><b id="sumEmotion"></b></div>
+    </div>
+    <h2 style="font-size:18px;margin-top:16px">📊 Skill Breakdown</h2>
+    <div id="skillsBox"></div>
+    <div class="scenario"><strong>💡 أهم رسالة:</strong><br>Customer Experience مش مسؤولية Customer Service فقط. العميل بيشوف بنك واحد، وتجربته هي مجموع كل Touchpoint: الفرع، التطبيق، الـATM، الـCall Center، الشكاوى، العمليات والموظفين.</div>
+    <div class="actions"><button class="btn btn-primary" onclick="restart()">العب تاني 🔁</button></div>
+  </section>
+
+  <div class="watermark">CX Bank Challenge • Web App</div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="data.js"></script>
+<script src="logic.js"></script>
+</body>
+</html>
